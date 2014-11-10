@@ -145,7 +145,8 @@ namespace cuv{
 	   cuvAssert(v.ptr());
 	   tensor<float,host_memory_space>::value_type* ptr = v.ptr();
 	   for(int i=0;i<v.size();i++)
-		   *ptr++ = ((float)rand()/RAND_MAX) < *ptr;
+		   *ptr = ((float)rand()/RAND_MAX) < *ptr;
+		   ptr++;
 	}
         template<>
 	void rnd_binarize(tensor<float,host_memory_space,column_major>& v){
